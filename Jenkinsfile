@@ -17,6 +17,7 @@ pipeline {
         }
         stage("Push Image") {
             steps {
+                echo '$QUAY_USR $QUAY_PWS'
                 sh '''
                     ./mvnw package -DskipTests \
                         -Dquarkus.jib.base-jvm-image=quay.io/redhattraining/do400-java-alpine-openjdk11-jre:latest \
